@@ -1,0 +1,19 @@
+# Bloco do provider + modelo NVIDIA para o ~/.kimi-code/config.toml
+# (preencha o api_key com sua chave nvapi-... de https://build.nvidia.com)
+# Opcional: adicione no TOPO do config.toml a linha:  default_model = "nvidia/glm53"
+
+[providers.nvidia]
+# base_url aponta para o shim local (remove o prompt_cache_key que a NVIDIA rejeita)
+type = "openai"
+base_url = "http://127.0.0.1:8878/v1"
+api_key = "COLOQUE_SUA_CHAVE_NVIDIA_AQUI"
+
+[models."nvidia/glm53"]
+provider = "nvidia"
+model = "z-ai/glm-5.3"
+max_context_size = 262144
+display_name = "GLM-5.3 NVIDIA"
+capabilities = ["thinking"]
+support_efforts = ["low", "high", "max"]
+default_effort = "low"
+off_effort = "none"
